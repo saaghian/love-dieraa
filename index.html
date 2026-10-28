@@ -1,0 +1,496 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>for dieraa, with love ♡</title>
+
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: #fff1f5;
+    color: #754354;
+    font-family: Georgia, serif;
+    text-align: center;
+    overflow-x: hidden;
+}
+
+.hero {
+    padding: 60px 20px 40px;
+    background: linear-gradient(145deg, #ffd3e2, #fff5f8);
+}
+
+.tag {
+    letter-spacing: 4px;
+    font: 11px Arial, sans-serif;
+    color: #bd6686;
+}
+
+h1 {
+    font-size: clamp(36px, 8vw, 55px);
+    margin: 22px 0 12px;
+}
+
+.hero p {
+    font-style: italic;
+    line-height: 1.8;
+}
+
+.container {
+    width: 92%;
+    max-width: 720px;
+    margin: auto;
+    padding: 15px 0 45px;
+}
+
+.section, .anniversary-card {
+    background: #fffafb;
+    border: 1px solid #ffe0e9;
+    border-radius: 22px;
+    padding: 26px 22px;
+    margin: 22px 0;
+    box-shadow: 0 8px 25px #d998ad18;
+}
+
+h2 {
+    font-size: 25px;
+    margin-bottom: 20px;
+}
+
+.anniversary-card {
+    background: linear-gradient(145deg, #fffafb, #ffe6ef);
+}
+
+.top-label {
+    font: 11px Arial, sans-serif;
+    letter-spacing: 3px;
+    color: #c05b7c;
+}
+
+.anniversary-card h2 {
+    margin: 16px 0;
+}
+
+.date {
+    font-size: 22px;
+    font-weight: bold;
+    color: #bc6685;
+}
+
+.subtitle {
+    font-size: 14px;
+    font-style: italic;
+    margin-top: 8px;
+}
+
+.counter {
+    margin: 25px auto;
+    padding: 18px;
+    max-width: 210px;
+    background: white;
+    border: 1px solid #f6ccda;
+    border-radius: 20px;
+}
+
+.counter span {
+    font-size: 43px;
+    font-weight: bold;
+    color: #df7598;
+}
+
+.counter p {
+    font: 13px Arial, sans-serif;
+    margin-top: 5px;
+}
+
+.message {
+    line-height: 1.8;
+    font-size: 15px;
+}
+
+.signature {
+    margin-top: 18px;
+    font-style: italic;
+}
+
+.photos {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+    align-items: start;
+    margin-top: 22px;
+}
+
+.polaroid {
+    background: white;
+    padding: 8px 8px 22px;
+    box-shadow: 0 4px 15px #a05a6c20;
+    transform: rotate(-2deg);
+}
+
+.polaroid:nth-child(2) {
+    transform: rotate(2deg);
+    margin-top: 20px;
+}
+
+.polaroid:nth-child(3) {
+    grid-column: 1 / -1;
+    width: 78%;
+    justify-self: center;
+    margin-top: 8px;
+    transform: rotate(-1deg);
+}
+
+.polaroid img {
+    display: block;
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    background: #ffe1eb;
+}
+
+.polaroid:nth-child(3) img {
+    height: 280px;
+}
+
+.caption {
+    font-size: 13px;
+    margin-top: 12px;
+    font-style: italic;
+}
+
+.letter {
+    text-align: left;
+    line-height: 2;
+    font-size: 16px;
+}
+
+.letter p {
+    margin-bottom: 17px;
+}
+
+.music {
+    background: #fce4ed;
+    border-radius: 18px;
+    padding: 20px 12px;
+}
+
+.spotify {
+    display: inline-block;
+    margin-top: 16px;
+    padding: 13px 22px;
+    color: white;
+    background: #168b46;
+    border-radius: 30px;
+    text-decoration: none;
+    font: bold 14px Arial, sans-serif;
+}
+
+.spotify:hover, button:hover {
+    opacity: 0.85;
+    transform: scale(1.03);
+}
+
+button {
+    background: #df7598;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    padding: 13px 23px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-top: 12px;
+    transition: 0.2s;
+}
+
+#surprise {
+    display: none;
+    margin-top: 22px;
+    line-height: 1.9;
+    animation: appear 0.7s ease;
+}
+
+footer {
+    background: #ffdfeb;
+    padding: 28px 15px;
+    font-size: 13px;
+    line-height: 2;
+}
+
+.heart {
+    color: #e86d96;
+    animation: beat 1s infinite;
+    display: inline-block;
+}
+
+.floating {
+    position: fixed;
+    bottom: -30px;
+    pointer-events: none;
+    animation: floatUp 5s linear forwards;
+    z-index: 5;
+}
+
+@keyframes beat {
+    50% { transform: scale(1.3); }
+}
+
+@keyframes floatUp {
+    to {
+        transform: translateY(-110vh) rotate(35deg);
+        opacity: 0;
+    }
+}
+
+@keyframes appear {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 430px) {
+    .section, .anniversary-card {
+        padding: 22px 15px;
+    }
+
+    .polaroid img { height: 175px; }
+    .polaroid:nth-child(3) img { height: 220px; }
+    .letter { font-size: 15px; }
+}
+</style>
+</head>
+
+<body>
+
+<header class="hero">
+    <div class="tag">a little love letter</div>
+    <h1>for dieraa <span class="heart">♡</span></h1>
+    <p>my favorite person, always. ♡</p>
+    <p style="margin-top:20px;">
+        a little website made just for you, dieraa 🌷
+    </p>
+</header>
+
+<main class="container">
+
+<section class="anniversary-card">
+    <p class="top-label">♡ a special day for us ♡</p>
+    <h2>our little anniversary 🌷</h2>
+    <p class="date">9 maret 2026</p>
+    <p class="subtitle">the day our story began ♡</p>
+
+    <div class="counter">
+        <span id="days">0</span>
+        <p>days together</p>
+    </div>
+
+    <p class="message">
+        every day with you is a memory worth keeping.
+        i'm glad our paths crossed, dieraa ♡
+    </p>
+    <p class="signature">— ansel 💌</p>
+</section>
+
+<section class="section">
+    <h2>our little memories 📸</h2>
+    <p>three pictures, countless memories, one special person. ♡</p>
+
+    <div class="photos">
+        <div class="polaroid">
+            <img src="foto satu.jpeg" alt="kenangan pertama kita">
+            <div class="caption">my favorite memory ♡</div>
+        </div>
+
+        <div class="polaroid">
+            <img src="foto dua.jpeg" alt="kenangan kedua kita">
+            <div class="caption">my favorite photos ♡</div>
+        </div>
+
+        <div class="polaroid">
+            <img src="foto tiga.jpeg" alt="kenangan ketiga kita">
+            <div class="caption">if it's with you, it's special ♡</div>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <h2>a letter for my girl 💌</h2>
+
+    <div class="letter">
+        <p>hi, diera. ♡</p>
+
+        <p>
+            there's actually a lot of things i want to tell you,
+            but sometimes i don't really know how to put them
+            into words. so, i made this little page for you,
+            just to remind you how special you are to me.
+        </p>
+
+        <p>
+            aku seneng bisa kenal kamu, seneng bisa punya cerita
+            sama kamu, dan seneng karena di antara banyaknya
+            orang yang bisa aku temui, somehow, i got to meet you.
+            mungkin hal-hal kecil yang kita lakuin sehari-hari
+            terlihat biasa aja, but honestly, those little
+            moments mean a lot to me.
+        </p>
+
+        <p>
+            aku nggak berharap hubungan kita selalu berjalan
+            sempurna. i know there will be days when things
+            get a little difficult, when we don't understand
+            each other, or when life gets overwhelming.
+            but i hope we can always find our way back to
+            each other, learn from our mistakes, and keep
+            growing together.
+        </p>
+
+        <p>
+            aku juga berharap kamu nggak pernah merasa harus
+            jadi orang lain cuma buat bisa disayang.
+            you can be yourself around me, even on your worst
+            days. kamu nggak harus selalu punya cerita yang
+            menyenangkan atau selalu terlihat kuat.
+            i'll always appreciate the little things that
+            make you who you are.
+        </p>
+
+        <p>
+            thank you for being here, for the conversations,
+            for the laughs, and for all the memories we've made.
+            i hope there will be more pictures to take, more
+            songs to share, more places to visit, and more
+            little moments that we can look back on someday
+            with a smile.
+        </p>
+
+        <p>
+            i can't promise that i'll always know the right
+            things to say or do, but i'll try my best to
+            understand you, appreciate you, and make you feel
+            loved in the little ways that matter.
+            because loving someone isn't just about saying
+            the words, it's also about listening, caring,
+            and showing up on ordinary days.
+        </p>
+
+        <p>
+            i'm really glad it's you, diera.
+            and if i could go back to the beginning,
+            i'd still be happy to meet you all over again.
+            take care of yourself, okay?
+            i'll be cheering for you, always. ♡
+        </p>
+
+        <p class="signature">
+            with love,<br>
+            - ansel 
+        </p>
+    </div>
+</section>
+
+<section class="section">
+    <h2>this song reminds me of you 🎧</h2>
+
+    <div class="music">
+        <div style="font-size:38px;">🎶💗</div>
+        <p style="margin-top:12px; line-height:1.8;">
+            one song, a million feelings.
+            semoga setiap kali kamu mendengarnya,
+            kamu ingat semua hal kecil tentang kita.
+        </p>
+
+        <!-- ganti link ini dengan link lagu spotify kalian -->
+        <a class="spotify"
+           href="https://open.spotify.com/playlist/3AoDv6hiCPRNJhLag4XpnT?si=1MtRV4WNQdOGG2pms44giw&utm_source=copy-link&pi=NkJBe4zARUiD8"
+           target="_blank"
+           rel="noopener noreferrer">
+           ▶ play our song on spotify
+        </a>
+    </div>
+</section>
+
+<section class="section">
+    <h2>one more thing for you ♡</h2>
+
+    <p>
+        there's a little something i want you to know.
+        open this when you have a moment. 💌
+    </p>
+
+    <button onclick="openSurprise()">
+        one more thing 💌
+    </button>
+
+    <div id="surprise">
+        <h2>for dieraa ♡</h2>
+
+         <h2>i love youuu! 💗</h2>
+        makasih udah jadi bagian dari cerita aku, dieraa
+        <br>
+        semoga kamu selalu ingat kalau kamu itu spesial, 
+        semoga kamu juga selalu punya alasan buat tersenyum
+         yaaa, and i hope i can be part of those reasons.
+        <br><br>
+    
+
+        <b>from ansel, with love. ♡</b>
+
+    </div>
+</section>
+
+</main>
+
+<footer>
+    made with love, just for dieraa 🌷
+    <br>
+    a little piece of my heart, from ansel ♡
+</footer>
+
+<script>
+function updateAnniversary() {
+    const start = new Date(2026, 2, 9);
+    const today = new Date();
+
+    start.setHours(0, 0, 0, 0);
+    today.setHours(0, 0, 0, 0);
+
+    const difference = Math.floor(
+        (today - start) / (1000 * 60 * 60 * 24)
+    );
+
+    document.getElementById("days").textContent =
+        difference >= 0 ? difference + 1 : 0;
+}
+
+function openSurprise() {
+    const message = document.getElementById("surprise");
+    message.style.display = "block";
+
+    for (let i = 0; i < 28; i++) {
+        const heart = document.createElement("span");
+        heart.className = "floating";
+        heart.textContent = ["💗", "💕", "♡", "💖"][
+            Math.floor(Math.random() * 4)
+        ];
+
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.fontSize = (16 + Math.random() * 20) + "px";
+        heart.style.animationDuration = (3 + Math.random() * 3) + "s";
+
+        document.body.appendChild(heart);
+        setTimeout(() => heart.remove(), 6500);
+    }
+}
+
+updateAnniversary();
+</script>
+
+</body>
+</html>
+
